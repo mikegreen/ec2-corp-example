@@ -1,4 +1,16 @@
 terraform {
+  backend "remote" {
+    hostname     = "app.terraform.io"
+    organization = "greenacreslimited"
+
+    workspaces {
+      name = "ec2-corp-example"
+    }
+  }
+}
+
+
+terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
